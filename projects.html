@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Projects | Hyfal Technologies</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --blue:#1261ff;
+ --blue-dark:#0b3fa8;
+ --orange:#ff7a00;
+ --dark:#10203a;
+ --text:#17243a;
+ --muted:#65748b;
+ --bg:#f7faff;
+ --card:#ffffff;
+ --border:#e5ebf5
+}
+html{scroll-behavior:smooth}
+body{
+ font-family:Arial,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+ line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+
+nav{
+ position:sticky;
+ top:0;
+ z-index:10;
+ background:rgba(255,255,255,.94);
+ backdrop-filter:blur(12px);
+ border-bottom:1px solid var(--border)
+}
+.nav{
+ max-width:1150px;
+ margin:auto;
+ padding:12px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between
+}
+.logo{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ font-size:21px;
+ font-weight:800;
+ color:#1261ff;
+ white-space:nowrap
+}
+.logo img{
+ height:48px;
+ width:auto;
+ display:block
+}
+.logo b{
+ color:#ff7a00
+}
+.links{display:flex;gap:25px}
+.links a{font-weight:600;color:#33445d}
+.links a:hover{color:var(--blue)}
+
+.hero{
+ max-width:1150px;
+ margin:auto;
+ padding:100px 20px 90px;
+ text-align:center
+}
+.badge{
+ display:inline-block;
+ padding:8px 15px;
+ border:1px solid #cddcff;
+ border-radius:30px;
+ color:var(--blue);
+ background:#eef3ff;
+ margin-bottom:22px;
+ font-weight:600
+}
+h1{
+ font-size:clamp(42px,8vw,76px);
+ line-height:1.05;
+ margin-bottom:20px
+}
+.gradient{
+ background:linear-gradient(90deg,var(--blue),var(--orange));
+ -webkit-background-clip:text;
+ color:transparent
+}
+.hero p{
+ max-width:680px;
+ margin:auto;
+ color:var(--muted);
+ font-size:18px
+}
+.buttons{
+ margin-top:32px;
+ display:flex;
+ justify-content:center;
+ gap:14px;
+ flex-wrap:wrap
+}
+.btn{
+ padding:13px 22px;
+ border-radius:10px;
+ font-weight:700;
+ color:white;
+ background:linear-gradient(90deg,var(--blue),#3982ff);
+ transition:.2s;
+ box-shadow:0 8px 20px rgba(18,97,255,.18)
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{
+ background:white;
+ color:var(--blue);
+ border:1px solid #cbd8ee;
+ box-shadow:none
+}
+
+section{
+ max-width:1150px;
+ margin:auto;
+ padding:75px 20px
+}
+.title{text-align:center;margin-bottom:40px}
+.title h2{font-size:36px;margin-bottom:8px}
+.title p{color:var(--muted)}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px
+}
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:25px;
+ transition:.25s;
+ box-shadow:0 8px 25px rgba(25,55,100,.06)
+}
+.card:hover{
+ transform:translateY(-5px);
+ border-color:#b8cdfc;
+ box-shadow:0 14px 30px rgba(25,55,100,.10)
+}
+.icon{font-size:30px;margin-bottom:15px}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+
+.project .tag{
+ display:inline-block;
+ font-size:12px;
+ color:var(--blue);
+ background:#eef3ff;
+ padding:5px 9px;
+ border-radius:20px;
+ margin-bottom:14px
+}
+.project .arrow{
+ display:inline-block;
+ margin-top:18px;
+ color:var(--blue);
+ font-weight:bold
+}
+
+.about{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:30px;
+ align-items:center
+}
+.aboutbox{
+ background:linear-gradient(145deg,#ffffff,#f0f5ff);
+ padding:35px;
+ border-radius:20px;
+ border:1px solid var(--border);
+ box-shadow:0 10px 30px rgba(25,55,100,.06)
+}
+.stats{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+ margin-top:20px
+}
+.stat{
+ padding:20px;
+ background:white;
+ border:1px solid var(--border);
+ border-radius:12px;
+ text-align:center
+}
+.stat b{
+ font-size:28px;
+ color:var(--orange);
+ display:block
+}
+
+.contact{
+ text-align:center;
+ background:linear-gradient(135deg,#edf4ff,#fff5eb);
+ border:1px solid #dce6f5;
+ border-radius:22px;
+ padding:45px 25px
+}
+
+footer{
+ text-align:center;
+ padding:35px 20px;
+ color:#718198;
+ background:#10203a;
+ border-top:1px solid #203653
+}
+
+@media(max-width:800px){
+ .links{display:none}
+ .grid{grid-template-columns:1fr 1fr}
+ .about{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .grid{grid-template-columns:1fr}
+ .hero{padding-top:65px}
+ section{padding:55px 18px}
+ .logo img{height:42px}
+}
+
+.social-icon{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef3ff;
+    color:#1261ff;
+    font-size:27px;
+    margin-bottom:15px;
+}
+.social-card:hover .social-icon{
+    background:#1261ff;
+    color:#fff;
+}
+.social-card{
+    cursor:pointer;
+}
+.coming{
+ display:inline-block;
+ margin-top:18px;
+ padding:7px 12px;
+ border-radius:20px;
+ background:#fff1e6;
+ color:#e66b00;
+ font-size:13px;
+ font-weight:700
+}
+
+
+.portfolio-category{
+ margin:45px 0 22px;
+ font-size:24px;
+}
+.live-title{color:#1261ff}
+.soon-title{color:#ff7a00}
+
+.status{
+ display:inline-block;
+ font-size:11px;
+ font-weight:800;
+ padding:5px 9px;
+ border-radius:20px;
+ margin-bottom:12px;
+ letter-spacing:.4px;
+}
+.status.live{
+ background:#e9f8ef;
+ color:#168447;
+}
+.status.soon{
+ background:#fff1e6;
+ color:#e66b00;
+}
+
+.menu-btn{
+ display:none;
+ border:0;
+ background:#eef3ff;
+ color:#1261ff;
+ font-size:25px;
+ width:44px;
+ height:44px;
+ border-radius:10px;
+ cursor:pointer;
+}
+.mobile-menu{
+ display:none;
+ position:absolute;
+ top:73px;
+ left:12px;
+ right:12px;
+ background:#fff;
+ border:1px solid #e5ebf5;
+ border-radius:16px;
+ padding:10px;
+ box-shadow:0 15px 40px rgba(20,50,100,.15);
+}
+.mobile-menu a{
+ display:block;
+ padding:14px 16px;
+ border-radius:10px;
+ font-weight:600;
+ color:#263852;
+}
+.mobile-menu a:hover{
+ background:#eef3ff;
+ color:#1261ff;
+}
+.mobile-menu.open{display:block;}
+
+@media(max-width:800px){
+ .links{display:none}
+ .menu-btn{display:block}
+}
+
+.page-hero{text-align:center;padding:80px 20px 55px}
+.page-hero h1{font-size:clamp(38px,7vw,64px);margin-bottom:15px}
+.page-hero p{color:var(--muted);max-width:700px;margin:auto}
+.page-content{max-width:1150px;margin:auto;padding:20px 20px 80px}
+.info-box{background:#fff;border:1px solid var(--border);border-radius:18px;padding:30px;box-shadow:0 8px 25px rgba(25,55,100,.06)}
+.social-icon{width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:#eef3ff;color:#1261ff;font-size:27px;margin-bottom:15px}
+</style>
+
+<style>
+
+.active{
+color:var(--blue)!important;
+font-weight:800;
+}
+
+.portfolio-hero{
+max-width:1150px;
+margin:auto;
+padding:85px 25px 75px;
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:60px;
+align-items:center;
+}
+
+.eyebrow{
+color:var(--orange);
+font-size:12px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.portfolio-hero h1{
+font-size:clamp(42px,6vw,68px);
+line-height:1.05;
+margin:15px 0 22px;
+letter-spacing:-2px;
+}
+
+.portfolio-hero h1 span{
+background:linear-gradient(90deg,var(--blue),var(--orange));
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.portfolio-hero p{
+font-size:18px;
+line-height:1.8;
+color:var(--muted);
+max-width:680px;
+}
+
+.hero-buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:28px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 22px;
+border-radius:12px;
+font-weight:800;
+text-decoration:none;
+transition:.25s;
+}
+
+.btn.primary{
+background:var(--blue);
+color:#fff;
+box-shadow:0 10px 25px #1261ff30;
+}
+
+.btn.secondary{
+background:#fff;
+color:var(--dark);
+border:1px solid var(--border);
+}
+
+.btn.white{
+background:#fff;
+color:var(--blue);
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.portfolio-visual{
+height:300px;
+border-radius:30px;
+background:linear-gradient(145deg,#eef4ff,#fff2e7);
+border:1px solid var(--border);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+box-shadow:0 25px 60px #12345a12;
+}
+
+.visual-number{
+font-size:90px;
+font-weight:900;
+line-height:1;
+color:var(--blue);
+}
+
+.visual-number span{
+color:var(--orange);
+}
+
+.portfolio-visual p{
+color:var(--muted);
+font-weight:700;
+}
+
+.portfolio-stats{
+max-width:1100px;
+margin:0 auto 70px;
+padding:25px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+border:1px solid var(--border);
+border-radius:22px;
+box-shadow:0 15px 40px #12345a0b;
+}
+
+.portfolio-stats div{
+text-align:center;
+border-right:1px solid var(--border);
+}
+
+.portfolio-stats div:last-child{border:0}
+
+.portfolio-stats strong{
+display:block;
+font-size:30px;
+color:var(--blue);
+}
+
+.portfolio-stats span{
+font-size:13px;
+color:var(--muted);
+}
+
+.portfolio-section{
+padding:80px 25px;
+background:#f7f9fd;
+}
+
+.section-heading{
+text-align:center;
+max-width:760px;
+margin:0 auto 45px;
+}
+
+.section-heading>span{
+color:var(--orange);
+font-size:12px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.section-heading h2{
+font-size:38px;
+margin:10px 0;
+}
+
+.section-heading p{
+color:var(--muted);
+line-height:1.7;
+}
+
+.project-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:24px;
+}
+
+.project-card{
+background:#fff;
+border:1px solid var(--border);
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 8px 25px #12345a08;
+transition:.25s;
+}
+
+.project-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 45px #12345a14;
+}
+
+.project-card.featured{
+grid-column:span 2;
+display:grid;
+grid-template-columns:.8fr 1.2fr;
+}
+
+.project-image{
+min-height:210px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+font-weight:900;
+color:#fff;
+background:linear-gradient(135deg,#1261ff,#2447a8);
+}
+
+.project-image.brain{background:linear-gradient(135deg,#1261ff,#6c42ff)}
+.project-image.tkr{background:linear-gradient(135deg,#0e294b,#1261ff)}
+.project-image.watch{background:linear-gradient(135deg,#ff7a00,#ffb000)}
+.project-image.save{background:linear-gradient(135deg,#ff4d72,#1261ff)}
+.project-image.mr{background:linear-gradient(135deg,#1261ff,#00a9a5)}
+
+.project-content{
+padding:28px;
+}
+
+.project-meta{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:15px;
+}
+
+.project-meta b{
+font-size:10px;
+background:#e9f8ef;
+color:#168447;
+padding:5px 9px;
+border-radius:20px;
+}
+
+.project-meta small{
+font-size:10px;
+font-weight:900;
+color:var(--blue);
+}
+
+.project-content h3{
+font-size:25px;
+margin-bottom:10px;
+}
+
+.project-content p{
+color:var(--muted);
+line-height:1.7;
+}
+
+.project-tags{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+margin:18px 0;
+}
+
+.project-tags span{
+padding:6px 9px;
+background:#f0f4fb;
+border-radius:8px;
+font-size:11px;
+font-weight:700;
+color:#53647d;
+}
+
+.project-btn{
+display:inline-block;
+margin-top:8px;
+color:var(--blue);
+font-weight:900;
+text-decoration:none;
+}
+
+.coming-section{
+padding:90px 25px;
+}
+
+.coming-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.coming-card{
+padding:28px;
+border:1px solid var(--border);
+border-radius:20px;
+background:#fff;
+position:relative;
+}
+
+.coming-card>span{
+color:#c8d1df;
+font-size:28px;
+font-weight:900;
+}
+
+.coming-card h3{
+font-size:21px;
+margin:12px 0 8px;
+}
+
+.coming-card p{
+color:var(--muted);
+line-height:1.6;
+}
+
+.coming-card strong{
+display:inline-block;
+margin-top:15px;
+padding:6px 10px;
+border-radius:20px;
+background:#fff1e6;
+color:#e66b00;
+font-size:10px;
+}
+
+.project-cta{
+max-width:1100px;
+margin:20px auto 80px;
+padding:55px;
+border-radius:28px;
+background:linear-gradient(110deg,var(--blue),#245eff,var(--orange));
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+}
+
+.project-cta>div>span{
+font-size:12px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.project-cta h2{
+font-size:38px;
+margin:10px 0;
+}
+
+.project-cta p{
+opacity:.9;
+max-width:650px;
+line-height:1.6;
+}
+
+@media(max-width:850px){
+.portfolio-hero{
+grid-template-columns:1fr;
+}
+
+.project-grid{
+grid-template-columns:1fr;
+}
+
+.project-card.featured{
+grid-column:auto;
+display:block;
+}
+
+.coming-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.portfolio-stats{
+grid-template-columns:1fr 1fr;
+}
+
+.portfolio-stats div:nth-child(2){
+border:0;
+}
+}
+
+@media(max-width:600px){
+.portfolio-hero{
+padding:55px 18px;
+}
+
+.portfolio-hero h1{
+letter-spacing:-1px;
+}
+
+.portfolio-stats{
+margin:0 15px 35px;
+}
+
+.coming-grid{
+grid-template-columns:1fr;
+}
+
+.project-cta{
+margin:20px 18px 60px;
+padding:35px 25px;
+flex-direction:column;
+align-items:flex-start;
+}
+}
+
+</style>
+
+<style>
+.logo-project{
+background:#fff !important;
+min-height:210px;
+height:210px;
+padding:22px;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.logo-project img{
+display:block;
+width:auto;
+height:auto;
+max-width:78%;
+max-height:155px;
+object-fit:contain;
+}
+
+/* Extra-wide logos */
+.logo-project img[alt="TKR Logo"],
+.logo-project img[alt="SaveMeApp Logo"]{
+max-width:62%;
+}
+
+/* Very large original image */
+.logo-project img[alt="Medical Representative Pocket Logo"]{
+max-width:68%;
+max-height:145px;
+}
+
+@media(max-width:600px){
+.logo-project{
+height:190px;
+min-height:190px;
+}
+
+.logo-project img{
+max-width:72%;
+max-height:135px;
+}
+
+.logo-project img[alt="TKR Logo"],
+.logo-project img[alt="SaveMeApp Logo"]{
+max-width:58%;
+}
+
+.logo-project img[alt="Medical Representative Pocket Logo"]{
+max-width:64%;
+}
+}
+</style>
+
+
+
+
+
+<style>
+/* MrBrain Logo - 1:1 Black Square */
+.project-card.featured .logo-project{
+    aspect-ratio:1 / 1 !important;
+    height:auto !important;
+    min-height:0 !important;
+    padding:0 !important;
+    background:#000 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:hidden !important;
+}
+
+.project-card.featured .logo-project img[alt="MrBrain Logo"]{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+    display:block !important;
+}
+</style>
+
+<style id="professional-icon-ui">
+nav a > i,
+.mobile-menu a > i {
+    width: 1.15em;
+    margin-right: 7px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+nav a,
+.mobile-menu a {
+    align-items: center;
+}
+
+.feature-icon i,
+.service-icon i,
+.floating-card i,
+.eyebrow i,
+.icon i {
+    line-height: 1;
+}
+
+.feature-icon i,
+.service-icon i {
+    display: inline-block;
+}
+
+.floating-card i {
+    margin-right: 6px;
+}
+
+.eyebrow i {
+    margin-right: 6px;
+}
+
+.icon i {
+    display: inline-block;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div class="nav">
+<a class="logo" href="index.html">
+<img src="assets/logo.webp" alt="Hyfal Technologies Logo">
+<span>Hyfal <b>Technologies</b></span>
+</a>
+
+<div class="links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="projects.html" class="active">Projects</a>
+<a href="social.html">Social Media</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+<a href="services.html"><i class="fa-solid fa-screwdriver-wrench"></i> Services</a>
+<a href="projects.html"><i class="fa-solid fa-rocket"></i> Projects</a>
+<a href="social.html"><i class="fa-solid fa-globe"></i> Social Media</a>
+<a href="about.html"><i class="fa-solid fa-user-tie"></i> About Us</a>
+<a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+</div>
+</nav>
+
+<main>
+
+<section class="portfolio-hero">
+<div>
+<span class="eyebrow">OUR PORTFOLIO</span>
+<h1>Ideas We've Turned Into <span>Digital Products.</span></h1>
+<p>
+Explore applications, websites and platforms developed by Hyfal Technologies.
+Our portfolio includes live products as well as projects currently under development.
+</p>
+
+<div class="hero-buttons">
+<a class="btn primary" href="#live">Explore Live Projects ↓</a>
+<a class="btn secondary" href="contact.html">Start Your Project</a>
+</div>
+</div>
+
+<div class="portfolio-visual">
+<div class="visual-number">10<span>+</span></div>
+<p>Projects & Digital Initiatives</p>
+</div>
+</section>
+
+<section class="portfolio-stats">
+<div><strong>5</strong><span>Live Projects</span></div>
+<div><strong>5</strong><span>Coming Soon</span></div>
+<div><strong>6+</strong><span>Technology Services</span></div>
+<div><strong>100%</strong><span>Passion</span></div>
+</section>
+
+<section class="portfolio-section" id="live">
+
+<div class="section-heading">
+<span>LIVE PROJECTS</span>
+<h2>Ready to Explore</h2>
+<p>These products are currently available online and can be explored directly.</p>
+</div>
+
+<div class="project-grid">
+
+<div class="project-card featured">
+<div class="project-image logo-project">
+<img src="assets/projects/mrbrain.png" alt="MrBrain Logo">
+</div>
+<div class="project-content">
+<div class="project-meta"><b>LIVE</b><small>AI / APPLICATION</small></div>
+<h3>MrBrain</h3>
+<p>
+A smart digital application designed to provide useful AI-powered tools
+and practical digital features.
+</p>
+<div class="project-tags"><span>AI</span><span>Mobile</span><span>Digital Tools</span></div>
+<a href="https://mr-brain-cxyk.onrender.com/" target="_blank" class="project-btn">Open MrBrain →</a>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image logo-project">
+<img src="assets/projects/tkr.webp" alt="TKR Logo">
+</div>
+<div class="project-content">
+<div class="project-meta"><b>LIVE</b><small>WEB / BUSINESS</small></div>
+<h3>TKR</h3>
+<p>
+A custom digital system developed for practical business,
+restaurant and management requirements.
+</p>
+<div class="project-tags"><span>Web App</span><span>Business</span></div>
+<a href="https://tkr-app.onrender.com/" target="_blank" class="project-btn">Open TKR →</a>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image logo-project">
+<img src="assets/projects/watch2earn.png" alt="Watch2Earn Logo">
+</div>
+<div class="project-content">
+<div class="project-meta"><b>LIVE</b><small>REWARDS PLATFORM</small></div>
+<h3>Watch2Earn</h3>
+<p>
+A rewards-based platform where users can watch content,
+complete offers, earn coins and manage rewards.
+</p>
+<div class="project-tags"><span>Rewards</span><span>Web</span></div>
+<a href="https://watch2earn-9jww.onrender.com/" target="_blank" class="project-btn">Open Watch2Earn →</a>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image logo-project">
+<img src="assets/projects/savemeapp.webp" alt="SaveMeApp Logo">
+</div>
+<div class="project-content">
+<div class="project-meta"><b>LIVE</b><small>SOCIAL PLATFORM</small></div>
+<h3>SaveMeApp</h3>
+<p>
+A multiple-platform video downloader that lets users download
+videos in HD quality without watermark.
+</p>
+<div class="project-tags"><span>Social</span><span>Web</span></div>
+<a href="https://www.savemeapp.social/" target="_blank" class="project-btn">Open SaveMeApp →</a>
+</div>
+</div>
+
+<div class="project-card">
+<div class="project-image logo-project">
+<img src="assets/projects/mr-pocket.webp" alt="Medical Representative Pocket Logo">
+</div>
+<div class="project-content">
+<div class="project-meta"><b>LIVE</b><small>BUSINESS / PRODUCTIVITY</small></div>
+<h3>Medical Representative Pocket</h3>
+<p>
+A practical work assistant and calculator designed for medical
+representatives to manage everyday field activities.
+</p>
+<div class="project-tags"><span>Productivity</span><span>Business</span></div>
+<a href="https://mr-pocket.onrender.com/" target="_blank" class="project-btn">Open MR Pocket →</a>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="coming-section">
+
+<div class="section-heading">
+<span>COMING SOON</span>
+<h2>Currently In Development</h2>
+<p>
+More digital products are being developed by Hyfal Technologies
+and will be available soon.
+</p>
+</div>
+
+<div class="coming-grid">
+
+<div class="coming-card">
+<span>01</span>
+<h3>AiBeast</h3>
+<p>Smart digital application and utility-focused tools.</p>
+<strong>Coming Soon</strong>
+</div>
+
+<div class="coming-card">
+<span>02</span>
+<h3>SpyGuard</h3>
+<p>Security-focused mobile solution for device awareness and protection.</p>
+<strong>Coming Soon</strong>
+</div>
+
+<div class="coming-card">
+<span>03</span>
+<h3>SWO</h3>
+<p>A digital platform currently under development.</p>
+<strong>Coming Soon</strong>
+</div>
+
+<div class="coming-card">
+<span>04</span>
+<h3>Fixit Pakistan</h3>
+<p>Community-focused digital platform for projects and services.</p>
+<strong>Coming Soon</strong>
+</div>
+
+<div class="coming-card">
+<span>05</span>
+<h3>Fixit Kohat</h3>
+<p>Local community and service initiative for Kohat.</p>
+<strong>Coming Soon</strong>
+</div>
+
+</div>
+</section>
+
+<section class="project-cta">
+<div>
+<span>HAVE AN IDEA?</span>
+<h2>Let's Build Your Next Project.</h2>
+<p>
+Whether you need an app, website or custom digital platform,
+Hyfal Technologies can help turn your idea into reality.
+</p>
+</div>
+
+<a class="btn white" href="contact.html">Start a Conversation →</a>
+</section>
+
+</main>
+
+<footer>
+<strong>Hyfal Technologies</strong>
+<p>Building Ideas Into Digital Solutions.</p>
+<p>© 2026 Hyfal Technologies. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+ document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+
+<!-- Floating WhatsApp Support -->
+<a class="floating-whatsapp"
+   href="https://wa.me/923060333089"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+    <span class="whatsapp-label">Chat with us</span>
+    <span class="whatsapp-button">
+        <i class="fa-brands fa-whatsapp"></i>
+    </span>
+</a>
+
+<style id="floating-whatsapp-style">
+.floating-whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.whatsapp-button {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 29px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.22);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.whatsapp-label {
+    background: #fff;
+    color: #222;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 5px 18px rgba(0,0,0,.15);
+    opacity: 0;
+    transform: translateX(8px);
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.floating-whatsapp:hover .whatsapp-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.floating-whatsapp:hover .whatsapp-button {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(37,211,102,.4);
+}
+
+@media (max-width: 600px) {
+    .floating-whatsapp {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-button {
+        width: 54px;
+        height: 54px;
+        font-size: 27px;
+    }
+
+    .whatsapp-label {
+        display: none;
+    }
+}
+</style>
+
+
+<style id="whatsapp-animation">
+.whatsapp-button {
+    animation: whatsappFloat 2.8s ease-in-out infinite;
+}
+
+.whatsapp-button::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, .45);
+    animation: whatsappPulse 2.2s ease-out infinite;
+}
+
+@keyframes whatsappFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes whatsappPulse {
+    0% {
+        transform: scale(.9);
+        opacity: .7;
+    }
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+.floating-whatsapp:hover .whatsapp-button {
+    animation: none;
+    transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-button,
+    .whatsapp-button::after {
+        animation: none;
+    }
+}
+</style>
+
+</body>
+
+</html>

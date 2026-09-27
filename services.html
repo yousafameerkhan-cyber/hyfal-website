@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Services | Hyfal Technologies</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+ --blue:#1261ff;
+ --blue-dark:#0b3fa8;
+ --orange:#ff7a00;
+ --dark:#10203a;
+ --text:#17243a;
+ --muted:#65748b;
+ --bg:#f7faff;
+ --card:#ffffff;
+ --border:#e5ebf5
+}
+html{scroll-behavior:smooth}
+body{
+ font-family:Arial,sans-serif;
+ background:var(--bg);
+ color:var(--text);
+ line-height:1.6
+}
+a{text-decoration:none;color:inherit}
+
+nav{
+ position:sticky;
+ top:0;
+ z-index:10;
+ background:rgba(255,255,255,.94);
+ backdrop-filter:blur(12px);
+ border-bottom:1px solid var(--border)
+}
+.nav{
+ max-width:1150px;
+ margin:auto;
+ padding:12px 20px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between
+}
+.logo{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ font-size:21px;
+ font-weight:800;
+ color:#1261ff;
+ white-space:nowrap
+}
+.logo img{
+ height:48px;
+ width:auto;
+ display:block
+}
+.logo b{
+ color:#ff7a00
+}
+.links{display:flex;gap:25px}
+.links a{font-weight:600;color:#33445d}
+.links a:hover{color:var(--blue)}
+
+.hero{
+ max-width:1150px;
+ margin:auto;
+ padding:100px 20px 90px;
+ text-align:center
+}
+.badge{
+ display:inline-block;
+ padding:8px 15px;
+ border:1px solid #cddcff;
+ border-radius:30px;
+ color:var(--blue);
+ background:#eef3ff;
+ margin-bottom:22px;
+ font-weight:600
+}
+h1{
+ font-size:clamp(42px,8vw,76px);
+ line-height:1.05;
+ margin-bottom:20px
+}
+.gradient{
+ background:linear-gradient(90deg,var(--blue),var(--orange));
+ -webkit-background-clip:text;
+ color:transparent
+}
+.hero p{
+ max-width:680px;
+ margin:auto;
+ color:var(--muted);
+ font-size:18px
+}
+.buttons{
+ margin-top:32px;
+ display:flex;
+ justify-content:center;
+ gap:14px;
+ flex-wrap:wrap
+}
+.btn{
+ padding:13px 22px;
+ border-radius:10px;
+ font-weight:700;
+ color:white;
+ background:linear-gradient(90deg,var(--blue),#3982ff);
+ transition:.2s;
+ box-shadow:0 8px 20px rgba(18,97,255,.18)
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{
+ background:white;
+ color:var(--blue);
+ border:1px solid #cbd8ee;
+ box-shadow:none
+}
+
+section{
+ max-width:1150px;
+ margin:auto;
+ padding:75px 20px
+}
+.title{text-align:center;margin-bottom:40px}
+.title h2{font-size:36px;margin-bottom:8px}
+.title p{color:var(--muted)}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px
+}
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:16px;
+ padding:25px;
+ transition:.25s;
+ box-shadow:0 8px 25px rgba(25,55,100,.06)
+}
+.card:hover{
+ transform:translateY(-5px);
+ border-color:#b8cdfc;
+ box-shadow:0 14px 30px rgba(25,55,100,.10)
+}
+.icon{font-size:30px;margin-bottom:15px}
+.card h3{margin-bottom:8px}
+.card p{color:var(--muted);font-size:14px}
+
+.project .tag{
+ display:inline-block;
+ font-size:12px;
+ color:var(--blue);
+ background:#eef3ff;
+ padding:5px 9px;
+ border-radius:20px;
+ margin-bottom:14px
+}
+.project .arrow{
+ display:inline-block;
+ margin-top:18px;
+ color:var(--blue);
+ font-weight:bold
+}
+
+.about{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:30px;
+ align-items:center
+}
+.aboutbox{
+ background:linear-gradient(145deg,#ffffff,#f0f5ff);
+ padding:35px;
+ border-radius:20px;
+ border:1px solid var(--border);
+ box-shadow:0 10px 30px rgba(25,55,100,.06)
+}
+.stats{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:15px;
+ margin-top:20px
+}
+.stat{
+ padding:20px;
+ background:white;
+ border:1px solid var(--border);
+ border-radius:12px;
+ text-align:center
+}
+.stat b{
+ font-size:28px;
+ color:var(--orange);
+ display:block
+}
+
+.contact{
+ text-align:center;
+ background:linear-gradient(135deg,#edf4ff,#fff5eb);
+ border:1px solid #dce6f5;
+ border-radius:22px;
+ padding:45px 25px
+}
+
+footer{
+ text-align:center;
+ padding:35px 20px;
+ color:#718198;
+ background:#10203a;
+ border-top:1px solid #203653
+}
+
+@media(max-width:800px){
+ .links{display:none}
+ .grid{grid-template-columns:1fr 1fr}
+ .about{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+ .grid{grid-template-columns:1fr}
+ .hero{padding-top:65px}
+ section{padding:55px 18px}
+ .logo img{height:42px}
+}
+
+.social-icon{
+    width:58px;
+    height:58px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eef3ff;
+    color:#1261ff;
+    font-size:27px;
+    margin-bottom:15px;
+}
+.social-card:hover .social-icon{
+    background:#1261ff;
+    color:#fff;
+}
+.social-card{
+    cursor:pointer;
+}
+.coming{
+ display:inline-block;
+ margin-top:18px;
+ padding:7px 12px;
+ border-radius:20px;
+ background:#fff1e6;
+ color:#e66b00;
+ font-size:13px;
+ font-weight:700
+}
+
+
+.portfolio-category{
+ margin:45px 0 22px;
+ font-size:24px;
+}
+.live-title{color:#1261ff}
+.soon-title{color:#ff7a00}
+
+.status{
+ display:inline-block;
+ font-size:11px;
+ font-weight:800;
+ padding:5px 9px;
+ border-radius:20px;
+ margin-bottom:12px;
+ letter-spacing:.4px;
+}
+.status.live{
+ background:#e9f8ef;
+ color:#168447;
+}
+.status.soon{
+ background:#fff1e6;
+ color:#e66b00;
+}
+
+.menu-btn{
+ display:none;
+ border:0;
+ background:#eef3ff;
+ color:#1261ff;
+ font-size:25px;
+ width:44px;
+ height:44px;
+ border-radius:10px;
+ cursor:pointer;
+}
+.mobile-menu{
+ display:none;
+ position:absolute;
+ top:73px;
+ left:12px;
+ right:12px;
+ background:#fff;
+ border:1px solid #e5ebf5;
+ border-radius:16px;
+ padding:10px;
+ box-shadow:0 15px 40px rgba(20,50,100,.15);
+}
+.mobile-menu a{
+ display:block;
+ padding:14px 16px;
+ border-radius:10px;
+ font-weight:600;
+ color:#263852;
+}
+.mobile-menu a:hover{
+ background:#eef3ff;
+ color:#1261ff;
+}
+.mobile-menu.open{display:block;}
+
+@media(max-width:800px){
+ .links{display:none}
+ .menu-btn{display:block}
+}
+
+.page-hero{text-align:center;padding:80px 20px 55px}
+.page-hero h1{font-size:clamp(38px,7vw,64px);margin-bottom:15px}
+.page-hero p{color:var(--muted);max-width:700px;margin:auto}
+.page-content{max-width:1150px;margin:auto;padding:20px 20px 80px}
+.info-box{background:#fff;border:1px solid var(--border);border-radius:18px;padding:30px;box-shadow:0 8px 25px rgba(25,55,100,.06)}
+.social-icon{width:58px;height:58px;border-radius:16px;display:flex;align-items:center;justify-content:center;background:#eef3ff;color:#1261ff;font-size:27px;margin-bottom:15px}
+</style>
+
+<style>
+
+.active{
+color:var(--blue)!important;
+font-weight:800;
+}
+
+.service-hero{
+max-width:1150px;
+margin:auto;
+padding:85px 25px 80px;
+display:grid;
+grid-template-columns:1.25fr .75fr;
+gap:60px;
+align-items:center;
+}
+
+.service-hero h1{
+font-size:clamp(42px,6vw,70px);
+line-height:1.05;
+margin:15px 0 22px;
+letter-spacing:-2px;
+}
+
+.service-hero h1 span{
+background:linear-gradient(90deg,var(--blue),var(--orange));
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.service-hero p{
+font-size:18px;
+line-height:1.8;
+color:var(--muted);
+max-width:650px;
+}
+
+.eyebrow{
+color:var(--blue);
+font-weight:900;
+font-size:12px;
+letter-spacing:2px;
+}
+
+.hero-buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:28px;
+}
+
+.btn{
+display:inline-block;
+padding:14px 22px;
+border-radius:12px;
+font-weight:800;
+text-decoration:none;
+transition:.25s;
+}
+
+.btn.primary{
+background:var(--blue);
+color:#fff;
+box-shadow:0 10px 25px #1261ff30;
+}
+
+.btn.secondary{
+background:#fff;
+color:var(--dark);
+border:1px solid var(--border);
+}
+
+.btn.white{
+background:#fff;
+color:var(--blue);
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.service-visual{
+height:350px;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.visual-circle{
+width:190px;
+height:190px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:48px;
+font-weight:900;
+color:#fff;
+background:linear-gradient(135deg,var(--blue),var(--orange));
+box-shadow:0 25px 60px #1261ff35;
+}
+
+.floating-card{
+position:absolute;
+background:#fff;
+border:1px solid var(--border);
+border-radius:15px;
+padding:13px 17px;
+font-weight:800;
+box-shadow:0 12px 30px #12345a15;
+}
+
+.floating-card.one{top:35px;left:5px}
+.floating-card.two{top:120px;right:0}
+.floating-card.three{bottom:35px;left:35px}
+
+.services-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.service-card{
+background:#fff;
+border:1px solid var(--border);
+border-radius:20px;
+padding:30px;
+transition:.25s;
+}
+
+.service-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 45px #12345a12;
+border-color:#cddcff;
+}
+
+.service-icon{
+width:58px;
+height:58px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+background:#eef4ff;
+border-radius:16px;
+margin-bottom:20px;
+}
+
+.service-card h3{
+font-size:21px;
+margin-bottom:10px;
+}
+
+.service-card>p{
+color:var(--muted);
+line-height:1.7;
+}
+
+.service-card ul{
+padding:0;
+margin:20px 0 0;
+list-style:none;
+}
+
+.service-card li{
+padding:7px 0;
+font-size:14px;
+color:#52627a;
+}
+
+.service-card li::before{
+content:"✓";
+color:var(--orange);
+font-weight:900;
+margin-right:8px;
+}
+
+.solutions{
+padding:90px 25px;
+background:#101f3a;
+color:#fff;
+}
+
+.solutions .section-heading p{
+color:#aebbd0;
+}
+
+.solution-grid{
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.solution-grid div{
+padding:28px;
+border:1px solid #ffffff18;
+border-radius:18px;
+background:#ffffff08;
+}
+
+.solution-grid strong{
+font-size:28px;
+color:#ff963c;
+}
+
+.solution-grid p{
+color:#b8c3d5;
+line-height:1.6;
+}
+
+.service-cta{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:30px;
+padding:50px;
+border-radius:28px;
+background:linear-gradient(110deg,var(--blue),#245eff,var(--orange));
+color:#fff;
+}
+
+.service-cta>div>span{
+font-size:12px;
+font-weight:900;
+letter-spacing:2px;
+}
+
+.service-cta h2{
+font-size:38px;
+margin:10px 0;
+}
+
+.service-cta p{
+opacity:.9;
+max-width:650px;
+line-height:1.6;
+}
+
+@media(max-width:850px){
+.service-hero{
+grid-template-columns:1fr;
+padding-top:55px;
+}
+
+.services-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.solution-grid{
+grid-template-columns:1fr 1fr;
+}
+
+.service-visual{
+height:280px;
+}
+}
+
+@media(max-width:600px){
+.services-grid,.solution-grid{
+grid-template-columns:1fr;
+}
+
+.service-hero{
+padding-left:18px;
+padding-right:18px;
+}
+
+.service-hero h1{
+letter-spacing:-1px;
+}
+
+.service-cta{
+padding:32px 25px;
+flex-direction:column;
+align-items:flex-start;
+}
+
+.floating-card.one{left:0}
+.floating-card.two{right:0}
+}
+
+</style>
+
+<style id="professional-icon-ui">
+nav a > i,
+.mobile-menu a > i {
+    width: 1.15em;
+    margin-right: 7px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+nav a,
+.mobile-menu a {
+    align-items: center;
+}
+
+.feature-icon i,
+.service-icon i,
+.floating-card i,
+.eyebrow i,
+.icon i {
+    line-height: 1;
+}
+
+.feature-icon i,
+.service-icon i {
+    display: inline-block;
+}
+
+.floating-card i {
+    margin-right: 6px;
+}
+
+.eyebrow i {
+    margin-right: 6px;
+}
+
+.icon i {
+    display: inline-block;
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<div class="nav">
+<a class="logo" href="index.html">
+<img src="assets/logo.webp" alt="Hyfal Technologies Logo">
+<span>Hyfal <b>Technologies</b></span>
+</a>
+
+<div class="links">
+<a href="index.html">Home</a>
+<a href="services.html" class="active">Services</a>
+<a href="projects.html">Projects</a>
+<a href="social.html">Social Media</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+<a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+<a href="services.html"><i class="fa-solid fa-screwdriver-wrench"></i> Services</a>
+<a href="projects.html"><i class="fa-solid fa-rocket"></i> Projects</a>
+<a href="social.html"><i class="fa-solid fa-globe"></i> Social Media</a>
+<a href="about.html"><i class="fa-solid fa-user-tie"></i> About Us</a>
+<a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+</div>
+</nav>
+
+<main>
+
+<section class="service-hero">
+<div>
+<span class="eyebrow">WHAT WE DO</span>
+<h1>Digital Solutions<br><span>Built For Your Goals.</span></h1>
+<p>
+From mobile apps and websites to custom software and digital platforms,
+Hyfal Technologies builds practical solutions designed around real needs.
+</p>
+
+<div class="hero-buttons">
+<a class="btn primary" href="contact.html">Start a Project →</a>
+<a class="btn secondary" href="projects.html">View Our Work</a>
+</div>
+</div>
+
+<div class="service-visual">
+<div class="visual-circle">HT</div>
+<div class="floating-card one"><i class="fa-solid fa-mobile-screen-button"></i> Mobile Apps</div>
+<div class="floating-card two"><i class="fa-solid fa-globe"></i> Websites</div>
+<div class="floating-card three"><i class="fa-solid fa-gears"></i> Software</div>
+</div>
+</section>
+
+<section class="section">
+<div class="section-heading">
+<span>OUR EXPERTISE</span>
+<h2>Services We Provide</h2>
+<p>
+We combine technology, design and practical thinking to create digital
+products that are useful, scalable and easy to use.
+</p>
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+<div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+<h3>Mobile App Development</h3>
+<p>Modern Android and mobile applications built with clean interfaces and practical functionality.</p>
+<ul>
+<li>Android applications</li>
+<li>Responsive mobile experiences</li>
+<li>App UI implementation</li>
+<li>Testing & deployment</li>
+</ul>
+</div>
+
+<div class="service-card">
+<div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+<h3>Website Development</h3>
+<p>Professional websites that work smoothly across mobile, tablet and desktop devices.</p>
+<ul>
+<li>Business websites</li>
+<li>Portfolio websites</li>
+<li>Landing pages</li>
+<li>Responsive design</li>
+</ul>
+</div>
+
+<div class="service-card">
+<div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+<h3>Web Applications</h3>
+<p>Custom web applications designed around specific business workflows and requirements.</p>
+<ul>
+<li>Custom dashboards</li>
+<li>Business systems</li>
+<li>User management</li>
+<li>Database-driven platforms</li>
+</ul>
+</div>
+
+<div class="service-card">
+<div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+<h3>UI / UX Design</h3>
+<p>Clean and engaging interfaces focused on usability, clarity and better user experiences.</p>
+<ul>
+<li>Interface design</li>
+<li>Mobile-first layouts</li>
+<li>User experience planning</li>
+<li>Design improvements</li>
+</ul>
+</div>
+
+<div class="service-card">
+<div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+<h3>Custom Software</h3>
+<p>Technology solutions developed around your exact workflow instead of forcing you into a fixed system.</p>
+<ul>
+<li>Custom tools</li>
+<li>Business automation</li>
+<li>Management systems</li>
+<li>Custom functionality</li>
+</ul>
+</div>
+
+<div class="service-card">
+<div class="service-icon"><i class="fa-solid fa-rocket"></i></div>
+<h3>Deployment & Support</h3>
+<p>We help take your product from development to deployment and keep it maintained.</p>
+<ul>
+<li>Web deployment</li>
+<li>App publishing</li>
+<li>Updates & improvements</li>
+<li>Technical support</li>
+</ul>
+</div>
+
+</div>
+</section>
+
+<section class="solutions">
+<div class="section-heading">
+<span>WHY OUR SERVICES</span>
+<h2>More Than Just Development</h2>
+<p>
+A successful digital product needs more than code. We focus on the complete
+experience from idea to launch.
+</p>
+</div>
+
+<div class="solution-grid">
+<div>
+<strong>01</strong>
+<h3>Understand</h3>
+<p>We understand your idea, audience and requirements before development begins.</p>
+</div>
+
+<div>
+<strong>02</strong>
+<h3>Plan</h3>
+<p>We structure the product, features and user experience around your goals.</p>
+</div>
+
+<div>
+<strong>03</strong>
+<h3>Build</h3>
+<p>We develop the solution and continuously test and improve it.</p>
+</div>
+
+<div>
+<strong>04</strong>
+<h3>Launch</h3>
+<p>We deploy the product and help you move forward with updates and support.</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="service-cta">
+<div>
+<span>READY TO START?</span>
+<h2>Have a Digital Idea?</h2>
+<p>
+Tell us what you want to build. We can help turn your idea into a
+professional digital product.
+</p>
+</div>
+
+<a class="btn white" href="contact.html">Contact Hyfal Technologies →</a>
+</div>
+</section>
+
+</main>
+
+<footer>
+<strong>Hyfal Technologies</strong>
+<p>Building Ideas Into Digital Solutions.</p>
+<p>© 2026 Hyfal Technologies. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+ document.getElementById("mobileMenu").classList.toggle("open");
+}
+</script>
+
+
+<!-- Floating WhatsApp Support -->
+<a class="floating-whatsapp"
+   href="https://wa.me/923060333089"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with us on WhatsApp">
+    <span class="whatsapp-label">Chat with us</span>
+    <span class="whatsapp-button">
+        <i class="fa-brands fa-whatsapp"></i>
+    </span>
+</a>
+
+<style id="floating-whatsapp-style">
+.floating-whatsapp {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    text-decoration: none;
+    font-family: inherit;
+}
+
+.whatsapp-button {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 29px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.22);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.whatsapp-label {
+    background: #fff;
+    color: #222;
+    padding: 9px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 5px 18px rgba(0,0,0,.15);
+    opacity: 0;
+    transform: translateX(8px);
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.floating-whatsapp:hover .whatsapp-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.floating-whatsapp:hover .whatsapp-button {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(37,211,102,.4);
+}
+
+@media (max-width: 600px) {
+    .floating-whatsapp {
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-button {
+        width: 54px;
+        height: 54px;
+        font-size: 27px;
+    }
+
+    .whatsapp-label {
+        display: none;
+    }
+}
+</style>
+
+
+<style id="whatsapp-animation">
+.whatsapp-button {
+    animation: whatsappFloat 2.8s ease-in-out infinite;
+}
+
+.whatsapp-button::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, .45);
+    animation: whatsappPulse 2.2s ease-out infinite;
+}
+
+@keyframes whatsappFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes whatsappPulse {
+    0% {
+        transform: scale(.9);
+        opacity: .7;
+    }
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+.floating-whatsapp:hover .whatsapp-button {
+    animation: none;
+    transform: scale(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .whatsapp-button,
+    .whatsapp-button::after {
+        animation: none;
+    }
+}
+</style>
+
+</body>
+
+</html>
